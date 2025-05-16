@@ -1,0 +1,35 @@
+---
+title: "renv"
+format: html
+editor: visual
+---
+
+```{r}
+#install package
+install.packages("HistData")
+```
+```{r}
+#Load the library
+library(HistData)
+library(ggplot2)
+library(dplyr)
+```
+```{r}
+# Filter the Breslau dataset to age >= 5
+
+data("Breslau")
+breslau_filtered <- Breslau %>% filter(age >= 5)
+```
+
+```{r}
+# Create a summary table
+summary_table <- breslau_filtered %>%
+  summarise(
+    Min_Age = min(age),
+    Max_Age = max(age),
+  )
+print(summary_table)
+```
+
+
+
